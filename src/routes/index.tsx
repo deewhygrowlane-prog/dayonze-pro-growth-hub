@@ -22,6 +22,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, XIcon } from "@/components/site/SiteFooter";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/brand";
 import heroImage from "@/assets/hero.jpg";
+import logoAsset from "@/assets/dayonze-pro-logo.png.asset.json";
 
 const TITLE = "Dayonze Pro | Digital Marketing & Online Growth";
 const DESCRIPTION =
