@@ -294,12 +294,14 @@ function Index() {
               <span className="absolute -left-1 -top-1 size-16 rounded-tl-2xl bg-brand-gradient" />
               <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-10">
                 <div className="flex flex-col items-center justify-center gap-6 py-8">
-                  <span className="flex size-28 items-center justify-center rounded-full border-4 border-primary font-display text-4xl font-bold text-primary">
-                    DP
-                  </span>
-                  <p className="font-display text-xl font-bold uppercase tracking-[0.3em] text-foreground">
-                    Dayonze Pro
-                  </p>
+                  <img
+                    src={logoAsset.url}
+                    alt="Dayonze Pro logo"
+                    width={224}
+                    height={224}
+                    loading="lazy"
+                    className="size-56 rounded-full"
+                  />
                   <p className="text-sm text-muted-foreground">Digital Marketing · Online Growth</p>
                 </div>
               </div>
