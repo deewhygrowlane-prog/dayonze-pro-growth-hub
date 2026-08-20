@@ -22,6 +22,10 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, XIcon } from "@/components/site/SiteFooter";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/brand";
 import heroImage from "@/assets/hero.jpg";
+import marketingBanner from "@/assets/marketing-banner.jpg";
+import workSocial from "@/assets/work-social.jpg";
+import workAds from "@/assets/work-ads.jpg";
+import workSeo from "@/assets/work-seo.jpg";
 import logoAsset from "@/assets/dayonze-pro-logo.png.asset.json";
 
 const TITLE = "Dayonze Pro | Digital Marketing & Online Growth";
@@ -174,16 +178,19 @@ const portfolio = [
     tag: "Social Media",
     title: "Lifestyle brand relaunch",
     body: "A refreshed content system that rebuilt an inactive social presence into a daily, engaged community.",
+    image: workSocial,
   },
   {
     tag: "Advertising",
     title: "Lead generation campaign",
     body: "Targeted paid campaigns structured around clear offers and measured cost per enquiry.",
+    image: workAds,
   },
   {
     tag: "SEO & Content",
     title: "Search visibility build",
     body: "Content and on-page SEO focused on the questions real customers search for.",
+    image: workSeo,
   },
 ];
 
@@ -293,16 +300,20 @@ function Index() {
           <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2">
             <div className="relative">
               <span className="absolute -left-1 -top-1 size-16 rounded-tl-2xl bg-brand-gradient" />
-              <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-10">
+              <div className="group relative overflow-hidden rounded-2xl border border-border bg-card p-10 shadow-soft">
                 <div className="flex flex-col items-center justify-center gap-6 py-8">
-                  <img
-                    src={logoAsset.url}
-                    alt="Dayonze Pro logo"
-                    width={224}
-                    height={224}
-                    loading="lazy"
-                    className="size-56 rounded-full"
-                  />
+                  <span className="relative inline-flex animate-dz-float">
+                    <span className="absolute -inset-6 rounded-full bg-brand-gradient opacity-20 blur-2xl animate-dz-pop" />
+                    <span className="absolute -inset-3 rounded-full border border-dashed border-primary/40 animate-dz-spin-slow" />
+                    <img
+                      src={logoAsset.url}
+                      alt="Dayonze Pro logo"
+                      width={224}
+                      height={224}
+                      loading="lazy"
+                      className="relative size-56 rounded-full transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </span>
                   <p className="text-sm text-muted-foreground">Digital Marketing · Online Growth</p>
                 </div>
               </div>
@@ -355,7 +366,7 @@ function Index() {
               {services.map((service) => (
                 <article
                   key={service.title}
-                  className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                  className="card-lift group rounded-2xl border border-border bg-card p-6"
                 >
                   <service.icon className="size-6 text-primary" />
                   <h3 className="mt-4 text-base font-bold">{service.title}</h3>
@@ -383,7 +394,7 @@ function Index() {
             </div>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {reasons.map((reason) => (
-                <div key={reason.title} className="rounded-xl border border-border bg-card p-6">
+                <div key={reason.title} className="card-lift rounded-2xl border border-border bg-card p-6">
                   <span className="flex size-11 items-center justify-center rounded-lg bg-brand-gradient text-brand-foreground">
                     <reason.icon className="size-5" />
                   </span>
@@ -404,7 +415,7 @@ function Index() {
             </div>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((item) => (
-                <div key={item.step} className="rounded-xl border border-border bg-card p-6">
+                <div key={item.step} className="card-lift rounded-2xl border border-border bg-card p-6">
                   <p className="font-display text-3xl font-bold text-primary/70">{item.step}</p>
                   <h3 className="mt-4 text-base font-bold">{item.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
@@ -421,24 +432,58 @@ function Index() {
               <SectionLabel>Portfolio</SectionLabel>
               <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Work we're proud of</h2>
             </div>
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
-              {portfolio.map((item) => (
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {portfolio.map((item, i) => (
                 <article
                   key={item.title}
-                  className="overflow-hidden rounded-xl border border-border bg-card"
+                  style={{ animationDelay: `${i * 140}ms` }}
+                  className="card-lift group animate-dz-rise overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
                 >
-                  <div className="flex h-40 items-center justify-center bg-hero-gradient">
-                    <span className="font-display text-2xl font-bold text-primary/80">DP</span>
+                  <div className="relative h-44 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={`${item.tag} project — ${item.title}`}
+                      width={1024}
+                      height={700}
+                      loading="lazy"
+                      className="size-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
+                    />
+                    <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
                   </div>
                   <div className="p-6">
                     <span className="text-xs font-semibold uppercase tracking-widest text-primary">
                       {item.tag}
                     </span>
-                    <h3 className="mt-3 text-base font-bold">{item.title}</h3>
+                    <h3 className="mt-3 text-base font-bold transition-colors group-hover:text-primary">
+                      {item.title}
+                    </h3>
                     <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
                   </div>
                 </article>
               ))}
+            </div>
+
+            <div className="relative mt-14 overflow-hidden rounded-3xl border border-border bg-surface">
+              <img
+                src={marketingBanner}
+                alt="Digital marketing analytics dashboard with social, email and campaign icons"
+                width={1000}
+                height={620}
+                loading="lazy"
+                className="h-64 w-full object-cover sm:h-80"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
+              <div className="absolute inset-y-0 left-0 flex max-w-md flex-col justify-center gap-3 p-8 sm:p-12">
+                <SectionLabel>Full-service marketing</SectionLabel>
+                <h3 className="text-2xl font-bold sm:text-3xl">
+                  Everything your brand needs to grow{" "}
+                  <span className="text-brand-gradient">online.</span>
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Social media, ads, content, SEO and analytics — managed in one place by Dayonze
+                  Pro.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -452,7 +497,7 @@ function Index() {
             </div>
             <div className="mt-12 grid gap-5 md:grid-cols-3">
               {testimonials.map((item) => (
-                <figure key={item.name} className="rounded-xl border border-border bg-card p-6">
+                <figure key={item.name} className="card-lift rounded-2xl border border-border bg-card p-6">
                   <Quote className="size-6 text-primary" />
                   <blockquote className="mt-4 text-sm text-muted-foreground">
                     “{item.quote}”
