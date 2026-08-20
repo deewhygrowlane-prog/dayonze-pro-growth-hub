@@ -22,6 +22,10 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, XIcon } from "@/components/site/SiteFooter";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/brand";
 import heroImage from "@/assets/hero.jpg";
+import marketingBanner from "@/assets/marketing-banner.jpg";
+import workSocial from "@/assets/work-social.jpg";
+import workAds from "@/assets/work-ads.jpg";
+import workSeo from "@/assets/work-seo.jpg";
 import logoAsset from "@/assets/dayonze-pro-logo.png.asset.json";
 
 const TITLE = "Dayonze Pro | Digital Marketing & Online Growth";
@@ -174,16 +178,19 @@ const portfolio = [
     tag: "Social Media",
     title: "Lifestyle brand relaunch",
     body: "A refreshed content system that rebuilt an inactive social presence into a daily, engaged community.",
+    image: workSocial,
   },
   {
     tag: "Advertising",
     title: "Lead generation campaign",
     body: "Targeted paid campaigns structured around clear offers and measured cost per enquiry.",
+    image: workAds,
   },
   {
     tag: "SEO & Content",
     title: "Search visibility build",
     body: "Content and on-page SEO focused on the questions real customers search for.",
+    image: workSeo,
   },
 ];
 
