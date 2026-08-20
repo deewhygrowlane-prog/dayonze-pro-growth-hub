@@ -366,7 +366,7 @@ function Index() {
               {services.map((service) => (
                 <article
                   key={service.title}
-                  className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/60"
+                  className="card-lift group rounded-2xl border border-border bg-card p-6"
                 >
                   <service.icon className="size-6 text-primary" />
                   <h3 className="mt-4 text-base font-bold">{service.title}</h3>
@@ -394,7 +394,7 @@ function Index() {
             </div>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {reasons.map((reason) => (
-                <div key={reason.title} className="rounded-xl border border-border bg-card p-6">
+                <div key={reason.title} className="card-lift rounded-2xl border border-border bg-card p-6">
                   <span className="flex size-11 items-center justify-center rounded-lg bg-brand-gradient text-brand-foreground">
                     <reason.icon className="size-5" />
                   </span>
@@ -415,7 +415,7 @@ function Index() {
             </div>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((item) => (
-                <div key={item.step} className="rounded-xl border border-border bg-card p-6">
+                <div key={item.step} className="card-lift rounded-2xl border border-border bg-card p-6">
                   <p className="font-display text-3xl font-bold text-primary/70">{item.step}</p>
                   <h3 className="mt-4 text-base font-bold">{item.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
@@ -497,7 +497,7 @@ function Index() {
             </div>
             <div className="mt-12 grid gap-5 md:grid-cols-3">
               {testimonials.map((item) => (
-                <figure key={item.name} className="rounded-xl border border-border bg-card p-6">
+                <figure key={item.name} className="card-lift rounded-2xl border border-border bg-card p-6">
                   <Quote className="size-6 text-primary" />
                   <blockquote className="mt-4 text-sm text-muted-foreground">
                     “{item.quote}”
